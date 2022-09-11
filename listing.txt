@@ -1,0 +1,33 @@
+  4:	keyword: print
+  4:	;
+  5:	keyword: read
+  5:	ID,	name= x
+  5:	;
+  7:	keyword: if
+  7:	ID,	name= x
+  7:	>=
+  7:	NUM	val= 0
+  7:	{
+  8:	keyword: print
+  8:	;
+  9:	}
+ 10:	keyword: else
+ 10:	{
+ 11:	keyword: print
+ 11:	;
+ 12:	}
+ 14:	ID,	name= i
+ 14:	=
+ 14:	NUM	val= 0
+ 14:	;
+ 15:	keyword: loop
+ 15:	ID,	name= i
+ 15:	<
+ 15:	NUM	val= 5
+ 15:	{
+ 16:	keyword: print
+ 16:	;
+ 17:	}
+ 19:	keyword: print
+ 19:	;
+ 19:	EOF

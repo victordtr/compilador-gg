@@ -1,0 +1,19 @@
+# Exemplo de Programa 
+# Comentarios começam usando '#' até '\n'
+
+print "Digite um numero: ";					# print e read são keywords de io
+read x;										# comandos terminam com ';'
+											# ainda não sei como armazenar strings ???
+if x >= 0 {									
+	print "Este numero é positivo\n";		# blocos de comandos começam com '{' e terminam com '}'
+}
+else {										# if e else são keywords de condicionais
+	print "Este numero é negativo\n";
+}
+
+i = 0;
+loop i < 5 {								# loop keyword de repetição
+	print "dentro do loop\n";
+}
+
+print "fim de programa\n";
