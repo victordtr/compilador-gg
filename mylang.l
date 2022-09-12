@@ -10,12 +10,12 @@ char lexema[TAM_LEXEMA + 1];
 
 	/* regras */
 
-identificador	[a-zA-Z_][a-zA-Z0-9_]*
+identificador		[a-zA-Z_][a-zA-Z0-9_]*
 numero			[+-]?[0-9][0-9]*
 	/* exp			[eE][0-9]+
 	real			[+-]?[0-9]*\.[0-9]+{exp}?
 	octal			[+-]?0[0-7][0-7]*
-	hexadecimal	[+-]?0x[0-9a-fA-F][0-9a-fA-F]* */
+	hexadecimal		[+-]?0x[0-9a-fA-F][0-9a-fA-F]* */
 newline			\n
 whitespace		[ \t\r]+
 endcmd			";"
@@ -29,43 +29,43 @@ endcmd			";"
 "read"			{return READ;}
 "print"			{return PRINT;}
 
-{identificador}	{return ID;}
+{identificador}		{return ID;}
 {numero}		{return NUM;}
-{whitespace}	{/* skip */}
+{whitespace}		{/* skip */}
 {newline}		{numline++;}
 
 	/* COMPARADORES */
 "=="			{return EQ;}
-"<"				{return LT;}
-">"				{return GT;}
+"<"			{return LT;}
+">"			{return GT;}
 "<="			{return LE;}
 ">="			{return GE;}
 "~="			{return NE;}
 
 	/* OPERADORES MATEMATICOS */
-"="            	{return ASSIGN;}
-"+"             {return PLUS;}
-"-"             {return MINUS;}
-"*"             {return TIMES;}
-"/"             {return OVER;}
+"="            		{return ASSIGN;}
+"+"             	{return PLUS;}
+"-"             	{return MINUS;}
+"*"             	{return TIMES;}
+"/"             	{return OVER;}
 "**"			{return POW;}
-"%"				{return MODULE;}
+"%"			{return MODULE;}
 
 	/* OPERADORES LOGICOS */
-"&"				{return AND;}
-"|"				{return OR;}
-"^"				{return XOR;}
-"~"				{return NOT;}
+"&"			{return AND;}
+"|"			{return OR;}
+"^"			{return XOR;}
+"~"			{return NOT;}
 
 	/* OPERADORES LOGICOS DE EQUACOES CONDICIONAIS */
 "and"			{return CAND;}
 "or"			{return COR;}
 
 	/* BLOCOS E ESPECIAIS */
-"{"             {return LCHAVES;}
-"}"             {return RCHAVES;}
-"("             {return LPAREN;}
-")"             {return RPAREN;}
+"{"			{return LCHAVES;}
+"}"			{return RCHAVES;}
+"("			{return LPAREN;}
+")"			{return RPAREN;}
 {endcmd}		{return ENDCMD;}
 "\"" {
 	char c;
@@ -90,7 +90,7 @@ endcmd			";"
 	/* Colocar depois que nem python
  	para multiplos comentarios ''' blabla ''' ?? */
 
-.				{return ERROR;}
+.			{return ERROR;}
 
 %%
 
