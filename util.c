@@ -12,7 +12,8 @@ void printToken(TokenType token, const char* lexema)
         case PRINT: fprintf(lstfile, "keyword: %s\n", lexema); break;
         // tokens multicaracteres
         case ID:    fprintf(lstfile, "ID,\tname= %s\n", lexema); break;
-        case NUM:   fprintf(lstfile, "NUM\tval= %s\n", lexema); break;
+        case INT:   fprintf(lstfile, "INT\tval= %s\n", lexema); break;
+        case REAL:  fprintf(lstfile, "REAL\tval= %s\n", lexema); break;
         // comparadores
         case EQ:
         case LT:

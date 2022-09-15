@@ -19,7 +19,7 @@ typedef enum {
     // KEYWORDS
     IF, ELSE, LOOP, READ, PRINT,
     // TOKENS MULTICARACTERES
-    ID, NUM,
+    ID, INT, REAL,
     // COMPARADORES
     EQ, LT, GT, LE, GE, NE,
     // OPERADORES MATEMATICOS

@@ -10,12 +10,12 @@ char lexema[TAM_LEXEMA + 1];
 
 	/* regras */
 
-identificador		[a-zA-Z_][a-zA-Z0-9_]*
-numero			[+-]?[0-9][0-9]*
-	/* exp			[eE][0-9]+
-	real			[+-]?[0-9]*\.[0-9]+{exp}?
-	octal			[+-]?0[0-7][0-7]*
-	hexadecimal		[+-]?0x[0-9a-fA-F][0-9a-fA-F]* */
+identificador	[a-zA-Z_][a-zA-Z0-9_]*
+inteiro			[+-]?[0-9][0-9]*
+exp				[eE][0-9]+
+real			[+-]?[0-9]*\.[0-9]+{exp}?
+	/* octal			[+-]?0[0-7][0-7]*
+	hexadecimal		[+-]?0[xX][0-9a-fA-F][0-9a-fA-F]* */
 newline			\n
 whitespace		[ \t\r]+
 endcmd			";"
@@ -29,43 +29,44 @@ endcmd			";"
 "read"			{return READ;}
 "print"			{return PRINT;}
 
+	/* OPERADORES LOGICOS DE EQUACOES CONDICIONAIS */
+"and"			{return CAND;}
+"or"			{return COR;}
+
 {identificador}		{return ID;}
-{numero}		{return NUM;}
+{inteiro}		{return INT;}
+{real}			{return REAL;}
 {whitespace}		{/* skip */}
 {newline}		{numline++;}
 
 	/* COMPARADORES */
 "=="			{return EQ;}
-"<"			{return LT;}
-">"			{return GT;}
+"<"				{return LT;}
+">"				{return GT;}
 "<="			{return LE;}
 ">="			{return GE;}
 "~="			{return NE;}
 
 	/* OPERADORES MATEMATICOS */
-"="            		{return ASSIGN;}
-"+"             	{return PLUS;}
-"-"             	{return MINUS;}
-"*"             	{return TIMES;}
-"/"             	{return OVER;}
+"="            	{return ASSIGN;}
+"+"             {return PLUS;}
+"-"             {return MINUS;}
+"*"             {return TIMES;}
+"/"             {return OVER;}
 "**"			{return POW;}
-"%"			{return MODULE;}
+"%"				{return MODULE;}
 
 	/* OPERADORES LOGICOS */
-"&"			{return AND;}
-"|"			{return OR;}
-"^"			{return XOR;}
-"~"			{return NOT;}
-
-	/* OPERADORES LOGICOS DE EQUACOES CONDICIONAIS */
-"and"			{return CAND;}
-"or"			{return COR;}
+"&"				{return AND;}
+"|"				{return OR;}
+"^"				{return XOR;}
+"~"				{return NOT;}
 
 	/* BLOCOS E ESPECIAIS */
-"{"			{return LCHAVES;}
-"}"			{return RCHAVES;}
-"("			{return LPAREN;}
-")"			{return RPAREN;}
+"{"				{return LCHAVES;}
+"}"				{return RCHAVES;}
+"("				{return LPAREN;}
+")"				{return RPAREN;}
 {endcmd}		{return ENDCMD;}
 "\"" {
 	char c;
