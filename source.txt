@@ -20,4 +20,6 @@ loop i < 5 {						# loop keyword de repetição
 	i = i + 1;
 }
 
-print "fim de programa\n";
+mensagem_fim = "fim de programa\n";
+
+print mensagem_fim;

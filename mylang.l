@@ -18,7 +18,6 @@ real			[+-]?[0-9]*\.[0-9]+{exp}?
 	hexadecimal		[+-]?0[xX][0-9a-fA-F][0-9a-fA-F]* */
 newline			\n
 whitespace		[ \t\r]+
-endcmd			";"
 
 %%
 
@@ -67,15 +66,27 @@ endcmd			";"
 "}"				{return RCHAVES;}
 "("				{return LPAREN;}
 ")"				{return RPAREN;}
-{endcmd}		{return ENDCMD;}
-"\"" {
-	char c;
-	do {
-		c = input();
-		if (c == EOF) break;
-		if (c == '\n') numline++;
-	} while (c != '\"');
-}
+";"				{return ENDCMD;}
+
+\"[^\"]*\"		{return STRING;}
+
+	/*
+	\"[^\"]*\" { 
+		string = malloc(strlen(yytext) * sizeof(char));
+		strcpy(string, yytext); 
+		
+		i = 0;    
+		while(string[i] != '\0') {
+			string[i] = string[i+1]; 
+			i++;
+		} 
+		string[i-2] = '\0';
+
+		if(pula_linha!=0) printf("\n"); 
+		return STRING;
+		chars+= strlen(yytext); 
+		pula_linha++;
+	}*/
 
 
 	/* COMENTARIOS */
