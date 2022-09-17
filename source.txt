@@ -1,24 +1,38 @@
-# Exemplo de Programa 
+# Exemplo de Programa
 # Comentarios começam usando '#' até '\n'
 
-print "Digite um numero: ";			# print e read são keywords de i/o
-read x;								# comandos terminam com ';'
-									# ainda não sei como armazenar strings ???
-if x >= 0 {									
-	print "Este numero é positivo\n";		# blocos de comandos começam com '{' e terminam com '}'
+# 01 - Calcular fatorial
+
+print "Digite um numero inteiro: ";		# print e read são keywords de i/o
+read x;									# comandos terminam com ';'
+
+if x > 0 {								# blocos de comandos começam com '{' e terminam com '}'
+	fact = 1;
+	loop x > 0 {						# loop keyword de repetição
+		fact = fact * x;				# if e else são keywords de condicionais
+		x = x - 1;
+	}
+	print fact;
 }
-else {										# if e else são keywords de condicionais
-	print "Este numero é negativo\n";
+else {										
+	print "erro! entrada inválida\n";
 }
 
-y = -.5e2;
-print y;
 
-i = 0;
-loop i < 5 {						# loop keyword de repetição
-	print "dentro do loop\n";
-	i = i + 1;
-}
+# 02 - Calcular juros compostos
+
+print "Digite o capital investido: ";
+read capital;
+print "Digite o tempo: ";
+read tempo;
+print "Digite a taxa em %: ";
+read taxa;
+taxa = taxa / 100;
+
+montante = capital * (1 + taxa) ** tempo;
+
+print "Montante = ";
+print montante;
 
 mensagem_fim = "fim de programa\n";
 

@@ -27,6 +27,7 @@ whitespace		[ \t\r]+
 "loop"			{return LOOP;}
 "read"			{return READ;}
 "print"			{return PRINT;}
+("true"|"false")	{return BOOL;}
 
 	/* OPERADORES LOGICOS DE EQUACOES CONDICIONAIS */
 "and"			{return CAND;}
