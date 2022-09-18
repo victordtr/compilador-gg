@@ -36,34 +36,4 @@ extern FILE* srcfile;
 extern FILE* lstfile;
 extern int numline;
 
-#define MAXCHILDREN 3
-
-/*****************************************************/
-/***********   Flags para rastreamento    ************/
-/*****************************************************/
-
-/* EchoSource = TRUE faz o programa fonte ser impresso no
-   arquivo listing com o numero de linha durante a analise
-   sintatica */
-extern int EchoSource;
-
-/* TraceScan = TRUE faz a informacao do token ser impressa
-   quando cada token eh reconhecido pela varredura */
-extern int TraceScan;
-
-/* TraceParse = TRUE faz a arvore sintatica ser impressa
-   de forma linearizada (identada por filho) */
-extern int TraceParse;
-
-/* TraceAnalyze = TRUE faz a insercao e a busca na
-   tabela de simbolos serem mostradas no arquivo listing */
-extern int TraceAnalyze;
-
-/* TraceCode = TRUE faz os comentarios serem gravados no
-   arquivo de codigo da maquina alvo quando o codigo eh gerado */
-extern int TraceCode;
-
-/* Error = TRUE previne passadas futuras se ocorrer um erro */
-extern int Error;
-
 #endif
