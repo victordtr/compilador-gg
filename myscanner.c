@@ -27,15 +27,6 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    /*char ch = fgetc(srcfile);
-    while (ch != EOF) {
-        printf("%c", ch);
-        fprintf(lstfile, "%c", ch);
-        if(ch == '\n') numline++;
-        ch = fgetc(srcfile);
-    }
-    printf("\n");*/
-
     printf("executando analise lexica de %s\n", argv[1]);
     TokenType token = getToken();
     while (token != ENDFILE) {
