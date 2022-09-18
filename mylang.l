@@ -71,25 +71,6 @@ whitespace		[ \t\r]+
 
 \"[^\"]*\"		{return STRING;}
 
-	/*
-	\"[^\"]*\" { 
-		string = malloc(strlen(yytext) * sizeof(char));
-		strcpy(string, yytext); 
-		
-		i = 0;    
-		while(string[i] != '\0') {
-			string[i] = string[i+1]; 
-			i++;
-		} 
-		string[i-2] = '\0';
-
-		if(pula_linha!=0) printf("\n"); 
-		return STRING;
-		chars+= strlen(yytext); 
-		pula_linha++;
-	}*/
-
-
 	/* COMENTARIOS */
 "#" {
 	char c;
@@ -99,9 +80,6 @@ whitespace		[ \t\r]+
 		if (c == '\n') numline++;
 	} while (c != '\n');
 }
-
-	/* Colocar depois que nem python
- 	para multiplos comentarios ''' blabla ''' ?? */
 
 .			{return ERROR;}
 
